@@ -1,0 +1,3 @@
+PUT easyrequest/test
+
+{ "test" : "test" }
