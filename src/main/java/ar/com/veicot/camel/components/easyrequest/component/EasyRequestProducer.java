@@ -30,6 +30,8 @@ public class EasyRequestProducer extends DefaultProducer {
         Request request = RequestFactory.create(this.endpoint.getRequestId(),
                                                 this.getRequestPath(exchange));
 
+        exchange.getOut().setHeaders(exchange.getIn().getHeaders());
+
         // Si el payload viene en el body, tomo ese
         if (this.endpoint.isBodyPayload())
             request.setPayload((String) exchange.getIn().getBody());
