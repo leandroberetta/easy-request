@@ -30,14 +30,7 @@ public class EasyRequestProducer extends DefaultProducer {
     public void process(Exchange exchange) throws Exception {
         Request request = RequestFactory.create(this.endpoint.getRequestId(),
                                                 this.getRequestPath(exchange));
-
-        // Removes internal headers
-        exchange.getIn().removeHeader(EasyRequest.PASSWORD);
-        exchange.getIn().removeHeader(EasyRequest.USERNAME);
-        exchange.getIn().removeHeader(EasyRequest.REQUEST_PATH);
-
-        exchange.getOut().setHeaders(exchange.getIn().getHeaders());
-
+        
         // Uses the body as payload if true
         if (this.endpoint.isBodyPayload())
             request.setPayload((String) exchange.getIn().getBody());
