@@ -31,7 +31,7 @@ public class EasyRequestComponent extends UriEndpointComponent {
     private Map<String, Object> parseUri(String uri) {
         Map<String, Object> parameters = new HashMap<>();
 
-        String pattern = "(\\w.+):(\\w+)\\/(\\w+)";
+        String pattern = "([a-zA-Z0-9{}$._-]+):([a-zA-Z0-9{}$._-]+)\\/([a-zA-Z0-9{}$._-]+)";
 
         Pattern r = Pattern.compile(pattern);
         Matcher m = r.matcher(uri);

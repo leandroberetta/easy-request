@@ -6,7 +6,7 @@
 
   <groupId>ar.com.veicot.camel.components</groupId>
   <artifactId>easy-request</artifactId>
-  <packaging>jar</packaging>
+  <packaging>bundle</packaging>
   <version>1.0.0-SNAPSHOT</version>
 
   <name>Veicot :: Easy Request</name>
@@ -77,6 +77,30 @@
         <configuration>
           <source>1.7</source>
           <target>1.7</target>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <version>2.3.7</version>
+        <extensions>true</extensions>
+        <executions>
+          <execution>
+            <id>bundle-manifest</id>
+            <phase>process-classes</phase>
+            <goals>
+              <goal>manifest</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <instructions>
+            <Bundle-SymbolicName>easy-request</Bundle-SymbolicName>
+            <Private-Package />
+            <Import-Package>*</Import-Package>
+            <Embed-Dependency>org.apache.commons.commons-lang3</Embed-Dependency>
+          </instructions>
         </configuration>
       </plugin>
 
