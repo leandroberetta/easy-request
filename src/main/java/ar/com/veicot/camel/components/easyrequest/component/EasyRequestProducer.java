@@ -30,7 +30,7 @@ public class EasyRequestProducer extends DefaultProducer {
     public void process(Exchange exchange) throws Exception {
         Request request = RequestFactory.create(this.endpoint.getRequestId(),
                                                 this.getRequestPath(exchange));
-        
+
         // Uses the body as payload if true
         if (this.endpoint.isBodyPayload())
             request.setPayload((String) exchange.getIn().getBody());
